@@ -44,17 +44,16 @@ flowchart TD
 
 
 ## Categories
+[01. Static Analysis — Traditional](#01-static-analysis-traditional) 
+[02. Static Analysis — LLM-Assisted](#02-static-analysis-llm-assisted)
+[03. Dynamic Analysis — Fuzzing](#03-dynamic-analysis-fuzzing) 
+[04. Dynamic Analysis — Symbolic Execution & Hybrid](#04-dynamic-analysis-symbolic-execution) 
+[05. Surveys & Taxonomies](#05-surveys-and-taxonomies)
+[06. Measurement & Large-Scale Studies](#06-measurement-and-large-scale-studies)
+[07. Protocol & Application Security](#07-protocol-and-application-security)
+[08. Honeypot & Deception](#08-honeypot-and-deception)
 
-| # | Category | Local Papers | New |
-|---|----------|--------------|--------|
-| 01 | [01. Static Analysis — Traditional](#01-static-analysis-traditional) | 19 | 7 |
-| 02 | [02. Static Analysis — LLM-Assisted](#02-static-analysis-llm-assisted) | 5 | 6 |
-| 03 | [03. Dynamic Analysis — Fuzzing](#03-dynamic-analysis-fuzzing) | 38 | 25 |
-| 04 | [04. Dynamic Analysis — Symbolic Execution & Hybrid](#04-dynamic-analysis-symbolic-execution) | 9 | 7 |
-| 05 | [05. Surveys & Taxonomies](#05-surveys-and-taxonomies) | 6 | 3 |
-| 06 | [06. Measurement & Large-Scale Studies](#06-measurement-and-large-scale-studies) | 5 | 7 |
-| 07 | [07. Protocol & Application Security](#07-protocol-and-application-security) | 3 | 12 |
-| 08 | [08. Honeypot & Deception](#08-honeypot-and-deception) | 2 | 2 |
+
 
 ## 01. Static Analysis — Traditional
 
