@@ -98,7 +98,6 @@ LLM- and AI-driven static analysis, code understanding, and vulnerability reason
 - [Large Language Model-driven Security Assistant for Internet of Things via Chain-of-Thought](02-static-analysis-llm-assisted/Large%20Language%20Model-driven%20Security%20Assistant%20for%20Internet%20of%20Things%20via%20CoT.pdf) (ICoT, IEEE Internet of Things Journal 2025)
 - [Large Language Model-Powered Protected Interface Evasion: Automated Discovery of Broken Access Control Vulnerabilities in Internet of Things Devices](02-static-analysis-llm-assisted/ACBreaker.pdf) (ACBreaker, Sensors (MDPI journal) 2025)
 - [Moye: A Wallbreaker for Monolithic Firmware](https://dl.acm.org/doi/10.1109/ICSE55347.2025.00053) (Moye, ICSE 2025)
-- [Nova: Generative Language Models for Assembly Code with Hierarchical Attention and Contrastive Learning](https://arxiv.org/abs/2311.13721) (Nova, ICLR 2025)
 - [Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing](02-static-analysis-llm-assisted/Fuzzing%20BusyBox%20Leveraging%20LLM%20and%20Crash%20Reuse%20for%20Embedded%20Bug%20unearth.pdf) (USENIX Security 2024)
 - [LLMIF: Augmented Large Language Model for Fuzzing IoT Devices](02-static-analysis-llm-assisted/LLMIF%20Augmented%20Large%20Language%20Model%20for%20Fuzzing%20IoT%20Devices.pdf) (LLMIF, IEEE S&P 2024)
 
@@ -107,7 +106,7 @@ LLM- and AI-driven static analysis, code understanding, and vulnerability reason
 Firmware/protocol fuzzing, rehosting-based fuzzing, greybox/blackbox fuzzers for embedded and IoT targets.
 
 - [ADGFUZZ: Assignment Dependency-Guided Fuzzing for Robotic Vehicles](https://www.ndss-symposium.org/ndss-paper/adgfuzz-assignment-dependency-guided-fuzzing-for-robotic-vehicles/) (ADGFUZZ, NDSS 2026)
-- [Bond (exact official title unconfirmed)](03-dynamic-analysis-fuzzing/Bond_USENIX_Security.pdf) (Bond, USENIX Security 2026)
+- [Bond: Constraint-Directed Fuzzing for Automated Validation of Taint Analysis  Results in Linux-based IoT Firmware](03-dynamic-analysis-fuzzing/Bond_USENIX_Security.pdf) (Bond, USENIX Security 2026)
 - [BSFuzzer: Context-Aware Semantic Fuzzing for BLE Logic Flaw Detection](https://www.ndss-symposium.org/ndss-paper/bsfuzzer-context-aware-semantic-fuzzing-for-ble-logic-flaw-detection/) (BSFuzzer, NDSS 2026)
 - [Camveil: Unveiling Security Camera Vulnerabilities through Multi-Protocol Coordinated Fuzzing](https://sp2026.ieee-security.org/accepted-papers.html) (Camveil, IEEE S&P 2026)
 - [FirmReBugger: A Benchmark Framework for Monolithic Firmware Fuzzers](https://www.usenix.org/conference/usenixsecurity26/presentation/duong) (FirmReBugger, USENIX Security 2026)
