@@ -3,7 +3,16 @@
 ![Awesome](https://awesome.re/badge.svg) ![Papers](https://img.shields.io/badge/papers-156-blue) ![Last Updated](https://img.shields.io/badge/updated-2026--07-green) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
 
 
-A curated collection of research papers on IoT / embedded firmware security, organized by technique and topic. Built for anyone learning or researching in this area.
+A curated, categorized **awesome list** of IoT and embedded-firmware security
+research papers — spanning **IEEE S&P, USENIX Security, ACM CCS, NDSS** and top
+AI/SE venues (ICSE / FSE / ASE / ISSTA / ICLR). Covers firmware fuzzing, static
+taint & binary analysis, symbolic execution, firmware rehosting/emulation,
+LLM-assisted analysis, IoT protocol security (BLE, Zigbee, MQTT, Matter), and
+large-scale measurement studies. 
+
+Whether you are writing related work, hunting for a baseline, or learning the
+field, this list points you to the canonical papers. PRs welcome — see
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
 
 ## 📊 Overview
@@ -249,3 +258,15 @@ Honeypots, deception techniques, and datasets for observing real-world IoT attac
 - [Cyber-Physical Deception Through Coordinated IoT Honeypots](08-honeypot-and-deception/Cyber-Physical%20Deception%20Through%20Coordinated%20IoT%20Honeypots.pdf) (CPDS, USENIX Security 2025)
 - [DarkWrt: Towards Building a Dataset of Potentially Unwanted Functions in IoT Devices](08-honeypot-and-deception/2025-poster-DarkWrt%20Towards%20Building%20a%20Dataset%20of%20Potentially%20Unwanted%20Functions%20in%20IoT%20Devices.pdf) (DarkWrt, NDSS (poster) 2025)
 - [Poster: Agentic Shell Honeypot Using Structured Logging](https://doi.org/10.1145/3719027.3760731) (CCS 2025 (poster))
+
+---
+
+## 🔍 Keywords
+
+IoT security, embedded firmware security, firmware analysis, firmware fuzzing,
+firmware rehosting, firmware emulation, static taint analysis, binary analysis,
+symbolic execution, vulnerability detection, LLM-assisted fuzzing, IoT protocol
+security, BLE / Bluetooth Low Energy, Zigbee, MQTT, Matter, smart home security,
+industrial control systems (ICS/SCADA), RTOS, microcontroller (MCU) security,
+honeypot, security measurement study, awesome list, security papers, reading
+list, IEEE S&P, USENIX Security, ACM CCS, NDSS, ICSE, FSE, ASE, ISSTA.

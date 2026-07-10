@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If this curated list is useful to your research, please cite it as below and ⭐ the repository."
+title: "IoT Security Papers — a curated awesome list of IoT / embedded-firmware security research"
+abstract: >-
+  A categorized collection of research papers on IoT and embedded-firmware
+  security, covering firmware fuzzing, static and binary analysis, symbolic
+  execution, rehosting, LLM-assisted analysis, IoT protocol security, and
+  large-scale measurement studies from IEEE S&P, USENIX Security, ACM CCS,
+  NDSS and other top venues.
+authors:
+  - alias: AxiaoJJ
+keywords:
+  - IoT security
+  - firmware security
+  - firmware fuzzing
+  - static analysis
+  - symbolic execution
+  - firmware rehosting
+  - LLM-assisted analysis
+  - IoT protocol security
+  - awesome list
+type: software
+repository-code: "https://github.com/AxiaoJJ/IoTpaper"
+date-released: "2026-07-10"
+license: MIT
