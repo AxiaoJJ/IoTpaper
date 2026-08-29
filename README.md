@@ -1,6 +1,6 @@
 # IoT Security Papers
 
-![Awesome](https://awesome.re/badge.svg) ![Papers](https://img.shields.io/badge/papers-156-blue) ![Last Updated](https://img.shields.io/badge/updated-2026--07-green) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+![Awesome](https://awesome.re/badge.svg) ![Papers](https://img.shields.io/badge/papers-166-blue) ![Last Updated](https://img.shields.io/badge/updated-2026--08-green) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
 
 
 A curated, categorized **awesome list** of IoT and embedded-firmware security
@@ -17,15 +17,15 @@ field, this list points you to the canonical papers. PRs welcome — see
 
 ## 📊 Overview
 
-**156 papers** indexed (38 more from 2010–2022 not shown in the table below — see each category for the full history).
+**166 papers** indexed (38 more from 2010–2022 not shown in the table below — see each category for the full history).
 
 | Venue | 2023 | 2024 | 2025 | 2026 | Total |
 |---|---|---|---|---|---|
-| IEEE S&P | 1 | 4 | 6 | 8 | **22** |
-| USENIX Security | 3 | 4 | 11 | 7 | **34** |
+| IEEE S&P | 1 | 6 | 6 | 8 | **24** |
+| USENIX Security | 3 | 10 | 12 | 7 | **40** |
 | CCS | 1 | 10 | 10 | – | **22** |
 | NDSS | 3 | 2 | 10 | 15 | **36** |
-| AI/SE Top (ISSTA/ASE/ICSE/ICLR/FSE) | 4 | 1 | 8 | – | **15** |
+| AI/SE Top (ISSTA/ASE/ICSE/ICLR/FSE) | 4 | 2 | 8 | – | **16** |
 | Other (journal/workshop/thesis/arXiv) | 2 | 4 | 4 | – | **27** |
 
 ## 📈 Trend — Security Top-4 (2023–2026)
@@ -77,6 +77,7 @@ Source-code / binary static analysis, taint tracking, binary similarity and diff
 - [Be Aware of What You Let Pass: Demystifying URL-based Authentication Bypass Vulnerability in Java Web Applications](01-static-analysis-traditional/uabscan-ccs25.pdf) (UABScan, ACM CCS 2025)
 - [FirmPass: Identifying Broken Password Management in Linux-Based IoT Firmware Through Query-Driven Approaches](01-static-analysis-traditional/FirmPass_Identifying_Broken_Password_Management_in_Linux-Based_IoT_Firmware_Through_Query-Driven_Approaches.pdf) (FirmPass, IEEE Internet of Things Journal 2025)
 - [From Constraints to Cracks: Constraint Semantic Inconsistencies as Vulnerability Beacons for Embedded Systems](01-static-analysis-traditional/From%20Constraints%20to%20Crack%20Constraint%20Semantic%20Inconsistencies%20as%20Vulnerability%20Beacons%20for%20Embedded%20Systems.pdf) (NUWA, USENIX Security 2025)
+- [Kintsugi: Secure Hotpatching for Code-Shadowing Real-Time Embedded Systems](https://www.usenix.org/conference/usenixsecurity25/presentation/mackensen) (Kintsugi, USENIX Security 2025)
 - [SpecChecker-Int: An Extensible Concurrency Bugs Detection Tool for Interrupt-driven Embedded Software](https://dl.acm.org/doi/10.1145/3696630.3728592) (SpecChecker-Int, FSE 2025 (Demo))
 - [AutoFirm: Automatically Identifying Reused Libraries inside IoT Firmware at Large-Scale](01-static-analysis-traditional/AutoFirm%20Automatically%20Identifying%20Reused%20Libraries%20inside%20IoT%20Firmware%20at%20Large-Scale.pdf) (AutoFirm, arXiv preprint (no confirmed venue) 2024)
 - [BaseMirror: Automatic Reverse Engineering of Baseband Commands from Android's Radio Interface Layer](https://doi.org/10.1145/3658644.3690254) (BaseMirror, CCS 2024)
@@ -86,6 +87,7 @@ Source-code / binary static analysis, taint tracking, binary similarity and diff
 - [LuaTaint: A Static Analysis System for Web Configuration Interface Vulnerability of Internet of Things Devices](01-static-analysis-traditional/23-LuaTaint%20A%20Static%20Taint%20Analysis%20System%20for%20Web.pdf) (LuaTaint, IEEE Internet of Things Journal 2024)
 - [OctopusTaint: Advanced Data Flow Analysis for Detecting Taint-Based Vulnerabilities in IoT/IIoT Firmware](01-static-analysis-traditional/OctopusTaint_Advanced%20Data%20Flow%20Analysis%20for%20Detecting%20taint-based%20vulnerabilities%20in%20iot%20firmware.pdf) (OctopusTaint, ACM CCS 2024)
 - [Operation Mango: Scalable Discovery of Taint-Style Vulnerabilities in Binary Firmware Services](01-static-analysis-traditional/2024%20-%20USENIX%20Security%20-%20Mango.pdf) (Mango, USENIX Security 2024)
+- [Semantic-Enhanced Static Vulnerability Detection in Baseband Firmware](https://doi.org/10.1145/3597503.3639158) (ICSE 2024)
 - [Your Firmware Has Arrived: A Study of Firmware Update Vulnerabilities](01-static-analysis-traditional/sec24-Your%20Firmware%20Has%20Arrived-A%20Study%20of%20Firmware%20Update%20Vulnerabilities.pdf) (ChkUp, USENIX Security 2024)
 - [Detecting Vulnerabilities in Linux-Based Embedded Firmware with SSE-Based On-Demand Alias Analysis](01-static-analysis-traditional/23-Detecting%20Vulnerabilities%20in%20Linux-Based%20Embedded%20Firmware%20with%20SSE-Based%20On-Demand%20Alias%20Analysis.pdf) (EmTaint, ISSTA 2023)
 - [IoTFlow: Inferring IoT Device Behavior at Scale through Static Mobile Companion App Analysis](01-static-analysis-traditional/ccs2023-iotflow.pdf) (IoTFlow, ACM CCS 2023)
@@ -192,6 +194,7 @@ Symbolic/concolic execution and hybrid static+dynamic techniques for firmware vu
 - [Accurate and Efficient Recurring Vulnerability Detection for IoT Firmware](04-dynamic-analysis-symbolic-execution/24-FirmRec-Accurate%20and%20Efficient%20Recurring%20Vulnerability%20Detection%20for%20IoT%20Firmware.pdf) (FirmRec, ACM CCS 2024)
 - [Combining Static Analysis and Dynamic Symbolic Execution in a Toolchain to Detect Fault Injection Vulnerabilities](04-dynamic-analysis-symbolic-execution/Combining%20static%20analysis%20and%20dynamic%20symbolic%20execution%20in%20a%20toolchain%20to%20detect%20fault%20injection%20vulnerabilities.pdf) (Journal of Cryptographic Engineering 2024)
 - [FFXE: Dynamic Control Flow Graph Recovery for Embedded Firmware Binaries](04-dynamic-analysis-symbolic-execution/Tsang%20-%20FFXE%20Dynamic%20Control%20Flow%20Graph%20Recovery%20for%20Embe.pdf) (FFXE, USENIX Security 2024)
+- [Pandawan: Quantifying Progress in Linux-based Firmware Rehosting](https://www.usenix.org/conference/usenixsecurity24/presentation/angelakopoulos) (Pandawan, USENIX Security 2024)
 - [Poster: Discovering Authentication Bypass Vulnerabilities in IoT Devices through Guided Concolic Execution](04-dynamic-analysis-symbolic-execution/Poster%20Discovering%20Authentication%20Bypass.pdf) (NDSS (poster) 2024)
 - [MMIO Access-Based Coverage for Firmware Analysis](04-dynamic-analysis-symbolic-execution/23-MMIO_Access-Based_Coverage_for_Firmware_Analysis.pdf) (FIRMSTAT, IEEE CNS 2023)
 - [RSFuzzer: Discovering Deep SMI Handler Vulnerabilities in UEFI Firmware with Hybrid Fuzzing](04-dynamic-analysis-symbolic-execution/RSFuzzer_Discovering_Deep_SMI_Handler_Vulnerabilities_in_UEFI_Firmware_with_Hybrid_Fuzzing.pdf) (RSFuzzer, IEEE S&P 2023)
@@ -227,6 +230,11 @@ Internet-wide measurement, exposure analysis, and empirical/industry studies of 
 - [Evaluating Machine Learning-Based IoT Device Identification Models for Security Applications](https://www.ndss-symposium.org/ndss-paper/evaluating-machine-learning-based-iot-device-identification-models-for-security-applications/) (NDSS 2025)
 - [Finding 709 Defects in 258 Projects: An Experience Report on Applying CodeQL to Open-Source Embedded Software](https://arxiv.org/abs/2310.00205) (ISSTA 2025)
 - [Virtual Reality, Real Problems: A Longitudinal Security Analysis of VR Firmware](https://doi.org/10.1145/3719027.3765102) (Virtual Reality, Real Problems, CCS 2025)
+- ["Belt and suspenders" or "just red tape"?: Investigating Early Artifacts and User Perceptions of IoT App Security Certification](https://www.usenix.org/conference/usenixsecurity24/presentation/mandal) (USENIX Security 2024)
+- [Demystifying the Security Implications in IoT Device Rental Services](https://www.usenix.org/conference/usenixsecurity24/presentation/he-yi) (USENIX Security 2024)
+- [IoT Market Dynamics: An Analysis of Device Sales, Security and Privacy Signals, and their Interactions](https://www.usenix.org/conference/usenixsecurity24/presentation/vetrivel) (USENIX Security 2024)
+- [Patchy Performance? Uncovering the Vulnerability Management Practices of IoT-Centric Vendors](https://doi.org/10.1109/SP54263.2024.00154) (IEEE S&P 2024)
+- [Unveiling IoT Security in Reality: A Firmware-Centric Journey](https://www.usenix.org/conference/usenixsecurity24/presentation/nino) (USENIX Security 2024)
 - [Who Left the Door Open? Investigating the Causes of Exposed IoT Devices in an Academic Network](06-measurement-and-large-scale-studies/24-Who%20Left%20the%20Door%20Open-%20Investigating%20the%20Causes%20of%20Exposed%20IoT%20Devices%20in%20an%20Academic%20Network.pdf) (IEEE S&P 2024)
 - [An Empirical Study on Concurrency Bugs in Interrupt-Driven Embedded Software](https://dl.acm.org/doi/10.1145/3597926.3598140) (ISSTA 2023)
 
@@ -245,6 +253,7 @@ Security of specific IoT protocols, applications, and access-control/authenticat
 - [IMUFUZZER: Resilience-based Discovery of Signal Injection Attacks on Robotic Aerial Vehicles](https://ieeexplore.ieee.org/document/11334621) (IMUFUZZER, ASE 2025)
 - [TORCHLIGHT: Shedding LIGHT on Real-World Attacks on Cloudless IoT Devices Concealed within the Tor Network](07-protocol-and-application-security/TORCHLIGHT%20Shedding%20LIGHT%20on%20Real-World%20Attacks%20on%20Cloudless%20IoT%20Devices%20Concealed%20within%20the%20Tor%20Network.pdf) (TORCHLIGHT, USENIX Security 2025)
 - [ZVDetector: State-Guided Vulnerability Detection System for Zigbee Devices](https://doi.org/10.1145/3719027.3765035) (ZVDetector, CCS 2025)
+- [MQTTactic: Security Analysis and Verification for Logic Flaws in MQTT Implementations](https://doi.org/10.1109/SP54263.2024.00013) (MQTTactic, IEEE S&P 2024)
 - [BlueSWAT: A Lightweight State-Aware Security Framework for Bluetooth Low Energy](https://doi.org/10.1145/3658644.3670397) (BlueSWAT, CCS 2024)
 - [Drone Security and the Mysterious Case of DJI's DroneID](07-protocol-and-application-security/ndss2023_Drone%20Security%20and%20the%20Mysterious%20Case%20of%20DJI%27s%20DroneID.pdf) (NDSS 2023)
 - [Systematically Detecting Packet Validation Vulnerabilities in Embedded Network Stacks](https://arxiv.org/abs/2308.10965) (ASE 2023)
