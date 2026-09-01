@@ -1,6 +1,6 @@
 # IoT Security Papers
 
-![Awesome](https://awesome.re/badge.svg) ![Papers](https://img.shields.io/badge/papers-166-blue) ![Last Updated](https://img.shields.io/badge/updated-2026--08-green) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+![Awesome](https://awesome.re/badge.svg) ![Papers](https://img.shields.io/badge/papers-167-blue) ![Last Updated](https://img.shields.io/badge/updated-2026--09-green) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
 
 
 A curated, categorized **awesome list** of IoT and embedded-firmware security
@@ -17,7 +17,7 @@ field, this list points you to the canonical papers. PRs welcome — see
 
 ## 📊 Overview
 
-**166 papers** indexed (38 more from 2010–2022 not shown in the table below — see each category for the full history).
+**167 papers** indexed (38 more from 2010–2022 not shown in the table below — see each category for the full history).
 
 | Venue | 2023 | 2024 | 2025 | 2026 | Total |
 |---|---|---|---|---|---|
@@ -26,7 +26,7 @@ field, this list points you to the canonical papers. PRs welcome — see
 | CCS | 1 | 10 | 10 | – | **22** |
 | NDSS | 3 | 2 | 10 | 15 | **36** |
 | AI/SE Top (ISSTA/ASE/ICSE/ICLR/FSE) | 4 | 2 | 8 | – | **16** |
-| Other (journal/workshop/thesis/arXiv) | 2 | 4 | 4 | – | **27** |
+| Other (journal/workshop/thesis/arXiv) | 2 | 4 | 4 | 1 | **28** |
 
 ## 📈 Trend — Security Top-4 (2023–2026)
 
@@ -102,6 +102,7 @@ Source-code / binary static analysis, taint tracking, binary similarity and diff
 LLM- and AI-driven static analysis, code understanding, and vulnerability reasoning for embedded firmware.
 
 - [An LLM-Driven Fuzzing Framework for Detecting Logic Instruction Bugs in PLCs](https://www.ndss-symposium.org/ndss-paper/an-llm-driven-fuzzing-framework-for-detecting-logic-instruction-bugs-in-plcs/) (NDSS 2026)
+- [FalconScope: Effective and Efficient Detection of Hidden Web Interfaces in IoT Devices](https://doi.org/10.1145/3774904.3792431) (FalconScope, The Web Conference 2026)
 - [FirmAgent: Leveraging Fuzzing to Assist LLM Agents with IoT Firmware Vulnerability Discovery](https://www.ndss-symposium.org/ndss-paper/firmagent-leveraging-fuzzing-to-assist-llm-agents-with-iot-firmware-vulnerability-discovery/) (FirmAgent, NDSS 2026)
 - [PANGOLIN: Fuzzing Multilingual IoT Firmware with LLM-Driven Code Analysis](https://www.usenix.org/conference/usenixsecurity26/presentation/jia-zhipeng) (PANGOLIN, USENIX Security 2026)
 - [ProtocolGuard: Detecting Protocol Non-compliance Bugs via LLM-guided Static Analysis and Dynamic Verification](https://www.ndss-symposium.org/ndss-paper/protocolguard-detecting-protocol-non-compliance-bugs-via-llm-guided-static-analysis-and-dynamic-verification/) (ProtocolGuard, NDSS 2026)
