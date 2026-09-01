@@ -22,7 +22,7 @@ field, this list points you to the canonical papers. PRs welcome — see
 | Venue | 2023 | 2024 | 2025 | 2026 | Total |
 |---|---|---|---|---|---|
 | IEEE S&P | 1 | 6 | 6 | 8 | **24** |
-| USENIX Security | 3 | 10 | 12 | 7 | **40** |
+| USENIX Security | 3 | 10 | 12 | 7 | **41** |
 | CCS | 1 | 10 | 10 | – | **22** |
 | NDSS | 3 | 2 | 10 | 15 | **36** |
 | AI/SE Top (ISSTA/ASE/ICSE/ICLR/FSE) | 4 | 2 | 8 | – | **16** |
@@ -84,6 +84,7 @@ Source-code / binary static analysis, taint tracking, binary similarity and diff
 - [BinPRE: Enhancing Field Inference in Binary Analysis Based Protocol Reverse Engineering](https://doi.org/10.1145/3658644.3690299) (BinPRE, CCS 2024)
 - [Faster and Better: Detecting Vulnerabilities in Linux-based IoT Firmware with Optimized Reaching Definition Analysis](01-static-analysis-traditional/2024-Faster%20and%20Better%20Detecting%20Vulnerabilities%20in.pdf) (HermeScan, NDSS 2024)
 - [FITS: Inferring Intermediate Taint Sources for Effective Vulnerability Analysis of IoT Device Firmware](01-static-analysis-traditional/FITS%20Inferring%20Intermediate%20Taint%20Sources%20for%20Effective%20Vulnerability%20Analysis%20of%20IoT%20Device%20Firmware.pdf) (FITS, ASPLOS 2024)
+- [Leveraging Semantic Relations in Code and Data to Enhance Taint Analysis of Embedded Systems](https://www.usenix.org/conference/usenixsecurity24/presentation/zhao) (USENIX Security 2024)
 - [LuaTaint: A Static Analysis System for Web Configuration Interface Vulnerability of Internet of Things Devices](01-static-analysis-traditional/23-LuaTaint%20A%20Static%20Taint%20Analysis%20System%20for%20Web.pdf) (LuaTaint, IEEE Internet of Things Journal 2024)
 - [OctopusTaint: Advanced Data Flow Analysis for Detecting Taint-Based Vulnerabilities in IoT/IIoT Firmware](01-static-analysis-traditional/OctopusTaint_Advanced%20Data%20Flow%20Analysis%20for%20Detecting%20taint-based%20vulnerabilities%20in%20iot%20firmware.pdf) (OctopusTaint, ACM CCS 2024)
 - [Operation Mango: Scalable Discovery of Taint-Style Vulnerabilities in Binary Firmware Services](01-static-analysis-traditional/2024%20-%20USENIX%20Security%20-%20Mango.pdf) (Mango, USENIX Security 2024)
