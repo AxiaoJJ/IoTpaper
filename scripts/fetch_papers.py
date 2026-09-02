@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 """
-fetch_papers.py — auto-discover new IoT / embedded-firmware security papers.
+fetch_papers.py — auto-discover Linux-based IoT / firmware security papers.
 
 Pipeline:
   1. Read README.md -> set of "known" titles (dedup baseline, stays in sync).
-  2. DBLP keyword search across many IoT/firmware terms -> keep only results in
+  2. DBLP keyword search for Linux-based IoT/firmware terms -> keep only results in
      the target venue set (S&P, USENIX Sec, CCS, NDSS, ICSE, FSE, ASE, ISSTA,
      ICLR) and recent years.
-  3. arXiv cs.CR preprints matching IoT/firmware abstract terms.
+  3. arXiv cs.CR preprints matching Linux-based IoT/firmware abstract terms.
   4. Drop anything already in README; suggest a category for the rest.
   5. Write scripts/candidates.md (issue body) + scripts/candidates.count.
 
 Stdlib only (urllib, json, re, xml) — no pip install needed in GitHub Actions.
 Env:
   FETCH_OFFLINE=1     skip network (parsing/dedup self-test only)
-  FETCH_YEARS=2024,2025,2026   minimum years to keep from DBLP
+  FETCH_MIN_YEAR=2024          minimum year to keep
 """
 
 import html
@@ -35,15 +35,16 @@ UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chr
 
 MIN_YEAR = int(os.environ.get("FETCH_MIN_YEAR", "2024"))
 
-# ---- DBLP keyword queries (broad recall for IoT/firmware topics) -----------
-# Kept to a high-recall core; DBLP aggressively rate-limits, so fewer queries
-# with a longer sleep beats many fast ones (which get connection-reset).
+# ---- DBLP keyword queries (Linux-based IoT/firmware only) ------------------
+# DBLP exposes title metadata but not abstracts, so the query list and the
+# title filter below both require an explicit Linux signal. This intentionally
+# favors precision over recall: firmware papers that do not state their Linux
+# target in the title are left for manual discovery.
 DBLP_QUERIES = [
-    "firmware", "IoT security", "IoT vulnerability", "embedded system security",
-    "embedded firmware", "baseband firmware", "bluetooth low energy", "zigbee",
-    "mqtt security", "smart home security", "RTOS firmware", "PLC security",
-    "industrial control system security", "drone security", "firmware fuzzing",
-    "firmware rehosting", "UEFI security", "cyber-physical system security",
+    "Linux-based IoT firmware", "Linux-based firmware security",
+    "embedded Linux security", "embedded Linux firmware",
+    "Linux IoT security", "Linux IoT vulnerability", "Linux router firmware",
+    "Linux firmware fuzzing", "Linux firmware rehosting",
 ]
 DBLP_SLEEP = float(os.environ.get("DBLP_SLEEP", "5"))
 
@@ -72,37 +73,24 @@ def venue_canonical(raw):
         return "ICLR"
     return None
 
-# ---- IoT / firmware relevance (title-level precision filter) ---------------
-# Applied to ALL candidates. Cuts arXiv noise (broad abstract terms pull in
-# LLM/adversarial-ML papers that aren't IoT/firmware).
-KW_SINGLE = {
-    "firmware", "iot", "embedded", "baseband", "ble", "bluetooth", "zigbee",
-    "matter", "mqtt", "lorawan", "nfc", "rfid", "rtos", "mcu",
-    "microcontroller", "plc", "scada", "ics", "cps", "drone", "uav", "robotic",
-    "sensor", "rehost", "trustzone", "tee", "uefi", "bootloader", "cellular",
-    "lte", "5g", "6g", "wifi", "peripheral", "mmio", "edk",
-}
-KW_PHRASE = ("smart home", "smart homes", "cyber physical", "cyber-physical",
-             "industrial control", "smart speaker", "smart device")
+# ---- Linux-based IoT / firmware relevance ----------------------------------
+# DBLP records are evaluated using their title. arXiv records include the
+# abstract as well, so a paper whose title omits "Linux" may still qualify if
+# its abstract explicitly establishes the Linux-based device target.
+LINUX_IOT_TERMS = (
+    "firmware", "iot", "embedded", "router", "gateway", "device",
+    "smart home", "smart homes", "web interface", "network appliance",
+)
 
-def is_iot_relevant(title):
-    s = re.sub(r"\s+", " ", re.sub(r"[^a-z0-9]+", " ", title.lower())).strip(" ")
-    words = s.split()
-    wset = set(words)
-    for kw in KW_SINGLE:
-        if len(kw) >= 4:                       # prefix-safe: firmware->firmwares, rehost->rehosting
-            if any(w.startswith(kw) for w in words):
-                return True
-        else:                                  # short tokens (ble, tee, ics): exact only
-            if kw in wset:
-                return True
-    return any(p in s for p in KW_PHRASE)
+def is_linux_iot_relevant(text):
+    s = re.sub(r"\s+", " ", re.sub(r"[^a-z0-9]+", " ", text.lower())).strip(" ")
+    words = set(s.split())
+    return "linux" in words and any(term in s for term in LINUX_IOT_TERMS)
 
 # ---- arXiv abstract-term queries -------------------------------------------
 ARXIV_QUERIES = [
-    'cat:cs.CR+AND+(abs:firmware+OR+abs:IoT+OR+abs:embedded+OR+abs:baseband)',
-    'cat:cs.CR+AND+(abs:RTOS+OR+abs:microcontroller+OR+abs:PLC+OR+abs:%22smart+home%22)',
-    'cat:cs.CR+AND+(abs:BLE+OR+abs:Zigbee+OR+abs:MQTT+OR+abs:UEFI)',
+    'cat:cs.CR+AND+abs:Linux+AND+(abs:firmware+OR+abs:IoT+OR+abs:embedded)',
+    'cat:cs.CR+AND+abs:Linux+AND+(abs:router+OR+abs:gateway+OR+abs:%22smart+home%22)',
 ]
 
 # ---- helpers ---------------------------------------------------------------
@@ -220,10 +208,12 @@ def fetch_arxiv(max_per_query=100):
             year = int((pub.text or "")[:4]) if (pub is not None and pub.text) else 0
             if year < MIN_YEAR:
                 continue
+            summary = entry.find("a:summary", ARXIV_NS)
+            abstract = unescape(re.sub(r"\s+", " ", summary.text or "").strip()) if summary is not None else ""
             id_ = entry.find("a:id", ARXIV_NS)
             link = id_.text.strip() if id_ is not None else ""
             out.append({"title": title, "venue": f"arXiv {year}", "year": year,
-                        "url": link, "src": "arxiv"})
+                        "url": link, "src": "arxiv", "scope_text": f"{title} {abstract}"})
         time.sleep(3)  # arXiv requests >=3s between calls
     return out
 
@@ -244,7 +234,7 @@ def main():
 
     seen, cands = set(), []
     for p in raw:
-        if not is_iot_relevant(p["title"]):
+        if not is_linux_iot_relevant(p.get("scope_text", p["title"])):
             continue
         nt = norm_title(p["title"])
         if nt in known or nt in seen:
@@ -262,9 +252,9 @@ def write_report(cands):
     today = datetime.utcnow().strftime("%Y-%m-%d")
     srcs = f"DBLP (>= {MIN_YEAR}) + arXiv cs.CR"
     lines = [
-        f"# 📬 New IoT/Firmware Paper Candidates ({today})",
+        f"# 📬 New Linux-based IoT/Firmware Paper Candidates ({today})",
         "",
-        f"Auto-discovered from {srcs}, filtered to target venues, and "
+        f"Auto-discovered from {srcs}, filtered to Linux-based IoT/firmware scope and target venues, and "
         "de-duplicated against the current README.",
         "",
         f"**{len(cands)} new candidate(s).** Review each, then add the relevant ones per "
