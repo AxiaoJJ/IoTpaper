@@ -1,4 +1,4 @@
-name: Fetch new Linux-based IoT/firmware papers
+name: Fetch new IoT/firmware analysis papers
 
 on:
   schedule:
@@ -29,8 +29,8 @@ jobs:
         run: |
           n=$(cat scripts/candidates.count 2>/dev/null || echo 0)
           if [ "${n:-0}" -gt 0 ]; then
-            gh label create "new-papers" --description "Auto-discovered Linux-based IoT/firmware paper candidates" --color 0E8A16 2>/dev/null || true
-            title="New Linux-based IoT/firmware paper candidates ($(date -u +%Y-%m-%d)) — ${n} found"
+            gh label create "new-papers" --description "Auto-discovered IoT/firmware analysis paper candidates" --color 0E8A16 2>/dev/null || true
+            title="New IoT/firmware analysis paper candidates ($(date -u +%Y-%m-%d)) — ${n} found"
             gh issue create --title "$title" --body-file scripts/candidates.md --label "new-papers"
           else
             echo "No new candidates this run."

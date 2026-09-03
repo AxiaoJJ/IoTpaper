@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-fetch_papers.py — auto-discover Linux-based IoT / firmware security papers.
+fetch_papers.py — auto-discover IoT / embedded-firmware security papers.
 
 Pipeline:
   1. Read README.md -> set of "known" titles (dedup baseline, stays in sync).
-  2. DBLP keyword search for Linux-based IoT/firmware terms -> keep only results in
+  2. DBLP keyword search for IoT/embedded-firmware analysis terms -> keep only results in
      the target venue set (S&P, USENIX Sec, CCS, NDSS, ICSE, FSE, ASE, ISSTA,
      ICLR) and recent years.
-  3. arXiv cs.CR preprints matching Linux-based IoT/firmware abstract terms.
+  3. arXiv cs.CR preprints matching firmware-analysis abstract terms.
   4. Drop anything already in README; suggest a category for the rest.
   5. Write scripts/candidates.md (issue body) + scripts/candidates.count.
 
@@ -35,16 +35,13 @@ UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chr
 
 MIN_YEAR = int(os.environ.get("FETCH_MIN_YEAR", "2024"))
 
-# ---- DBLP keyword queries (Linux-based IoT/firmware only) ------------------
-# DBLP exposes title metadata but not abstracts, so the query list and the
-# title filter below both require an explicit Linux signal. This intentionally
-# favors precision over recall: firmware papers that do not state their Linux
-# target in the title are left for manual discovery.
+# ---- DBLP keyword queries (IoT/embedded-firmware analysis) -----------------
 DBLP_QUERIES = [
-    "Linux-based IoT firmware", "Linux-based firmware security",
-    "embedded Linux security", "embedded Linux firmware",
-    "Linux IoT security", "Linux IoT vulnerability", "Linux router firmware",
-    "Linux firmware fuzzing", "Linux firmware rehosting",
+    "IoT firmware vulnerability", "embedded firmware security",
+    "binary firmware analysis", "firmware taint analysis",
+    "firmware vulnerability detection", "firmware fuzzing",
+    "firmware rehosting", "firmware emulation", "router firmware security",
+    "IoT firmware authentication bypass", "embedded system taint analysis",
 ]
 DBLP_SLEEP = float(os.environ.get("DBLP_SLEEP", "5"))
 
@@ -71,26 +68,48 @@ def venue_canonical(raw):
         return "ISSTA"
     if v == "iclr":
         return "ICLR"
+    if "dependable and secure computing" in v or "dependable secur" in v:
+        return "IEEE TDSC"
+    if "information forensics and security" in v or "inf. forensics secur" in v:
+        return "IEEE TIFS"
+    if "internet of things journal" in v or "internet things j" in v:
+        return "IEEE IoT Journal"
+    if "computers & security" in v or "computers and security" in v or "comput. secur" in v:
+        return "Computers & Security"
+    if "embedded computing systems" in v or "embed. comput. syst" in v:
+        return "ACM TECS"
     return None
 
-# ---- Linux-based IoT / firmware relevance ----------------------------------
-# DBLP records are evaluated using their title. arXiv records include the
-# abstract as well, so a paper whose title omits "Linux" may still qualify if
-# its abstract explicitly establishes the Linux-based device target.
-LINUX_IOT_TERMS = (
-    "firmware", "iot", "embedded", "router", "gateway", "device",
-    "smart home", "smart homes", "web interface", "network appliance",
+# ---- IoT / embedded-firmware relevance -------------------------------------
+TARGET_TERMS = (
+    "firmware", "embedded system", "embedded software", "iot device",
+    "internet of things device", "router", "microcontroller", "mcu", "rtos",
+    "bootloader", "busybox",
+)
+ANALYSIS_TERMS = (
+    "vulnerab", "fuzz", "taint", "static analysis", "dynamic analysis",
+    "binary analysis", "rehost", "emulat", "symbolic execution", "concolic",
+    "authentication bypass", "security analysis", "hotpatch", "firmware update",
+    "testing", "corpus", "corpora", "taxonomy",
+)
+EXCLUDED_TERMS = (
+    "plc", "industrial control", "scada", "baseband", "cellular firmware",
+    "bluetooth", "ble protocol", "zigbee", "mqtt", "matter controller",
+    "wi fi", "drone", "uav", "robotic vehicle", "satellite", "automobile",
+    "automotive", "ecu firmware", "uefi", "smi handler", "honeypot",
+    "building automation",
 )
 
-def is_linux_iot_relevant(text):
+def is_firmware_relevant(text):
     s = re.sub(r"\s+", " ", re.sub(r"[^a-z0-9]+", " ", text.lower())).strip(" ")
-    words = set(s.split())
-    return "linux" in words and any(term in s for term in LINUX_IOT_TERMS)
+    return (any(term in s for term in TARGET_TERMS)
+            and any(term in s for term in ANALYSIS_TERMS)
+            and not any(term in s for term in EXCLUDED_TERMS))
 
 # ---- arXiv abstract-term queries -------------------------------------------
 ARXIV_QUERIES = [
-    'cat:cs.CR+AND+abs:Linux+AND+(abs:firmware+OR+abs:IoT+OR+abs:embedded)',
-    'cat:cs.CR+AND+abs:Linux+AND+(abs:router+OR+abs:gateway+OR+abs:%22smart+home%22)',
+    'cat:cs.CR+AND+abs:firmware+AND+(abs:vulnerability+OR+abs:fuzzing+OR+abs:taint)',
+    'cat:cs.CR+AND+(abs:firmware+OR+abs:%22embedded+system%22)+AND+(abs:rehosting+OR+abs:emulation+OR+abs:%22symbolic+execution%22)',
 ]
 
 # ---- helpers ---------------------------------------------------------------
@@ -133,11 +152,17 @@ def read_known(readme_path):
 
 def suggest_category(title):
     t = title.lower()
+    if any(k in t for k in ("llm", "large language", "gpt", "language model")):
+        return "02 LLM-Assisted Firmware Analysis"
+    if any(k in t for k in ("survey", "taxonomy", "systematiz", "review", "sok", "corpus", "corpora")):
+        return "05 Surveys, Taxonomies & Corpora"
+    if any(k in t for k in ("measurement", "large-scale", "empirical", "in the wild", "longitudinal")):
+        return "06 Firmware Measurement Studies"
     if "fuzz" in t:
-        return "02 Dynamic Analysis — Fuzzing"
+        return "03 Firmware Fuzzing & Dynamic Testing"
     if any(k in t for k in ("symbolic", "concolic", "rehost", "emulat")):
-        return "03 Rehosting & Emulation"
-    return "01 Static Analysis"
+        return "04 Symbolic Execution, Rehosting & Emulation"
+    return "01 Static & Taint Analysis"
 
 # ---- DBLP ------------------------------------------------------------------
 def fetch_dblp():
@@ -224,7 +249,7 @@ def main():
 
     seen, cands = set(), []
     for p in raw:
-        if not is_linux_iot_relevant(p.get("scope_text", p["title"])):
+        if not is_firmware_relevant(p.get("scope_text", p["title"])):
             continue
         nt = norm_title(p["title"])
         if nt in known or nt in seen:
@@ -242,9 +267,9 @@ def write_report(cands):
     today = datetime.utcnow().strftime("%Y-%m-%d")
     srcs = f"DBLP (>= {MIN_YEAR}) + arXiv cs.CR"
     lines = [
-        f"# 📬 New Linux-based IoT/Firmware Paper Candidates ({today})",
+        f"# 📬 New IoT/Firmware Analysis Paper Candidates ({today})",
         "",
-        f"Auto-discovered from {srcs}, filtered to Linux-based IoT/firmware scope and target venues, and "
+        f"Auto-discovered from {srcs}, filtered to IoT/embedded-firmware analysis scope and target venues, and "
         "de-duplicated against the current README.",
         "",
         f"**{len(cands)} new candidate(s).** Review each, then add the relevant ones per "

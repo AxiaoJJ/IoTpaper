@@ -1,12 +1,12 @@
 # Contributing
 
-Thanks for helping improve this Linux-based IoT / embedded firmware security paper collection. Contributions are welcome as long as they keep the repository accurate, readable, and legally redistributable.
+Thanks for helping improve this IoT / embedded firmware vulnerability-analysis collection. Contributions are welcome as long as they keep the repository accurate, readable, and legally redistributable.
 
 ## What to Submit
 
 You can submit:
 
-- New Linux-based IoT / embedded-firmware security papers
+- New IoT / embedded-firmware vulnerability-analysis papers
 - Corrections to title, tool name, venue, year, category, or links
 - Better classification of existing papers
 - Missing author/team/institution information
@@ -14,14 +14,15 @@ You can submit:
 
 ## Paper Scope
 
-This repository focuses only on Linux-based IoT and embedded-firmware security, especially:
+This repository focuses on security analysis of IoT and embedded firmware, especially:
 
-- Static/taint/binary analysis and vulnerability detection for Linux-based IoT firmware
-- Linux-based firmware fuzzing, dynamic analysis, emulation, and rehosting
-- Linux-based IoT device web interfaces and applications, when their device/firmware target is explicit
-- LLM/AI/SE techniques when directly applied to Linux-based IoT firmware or embedded Linux applications
+- Firmware static analysis, taint analysis, binary analysis, vulnerability detection
+- Firmware fuzzing, dynamic analysis, emulation, rehosting, symbolic/concolic execution
+- Firmware authentication, web interfaces, updates, and recurring-vulnerability detection
+- Firmware-focused empirical studies, datasets, and corpora
+- LLM/AI/SE techniques directly applied to firmware or embedded-device vulnerability analysis
 
-Please avoid adding bare-metal/RTOS/UEFI, generic protocol, generic IoT, generic embedded, software-security, or ML-security papers unless they explicitly target Linux-based IoT firmware or embedded Linux applications.
+Please avoid PLC/ICS-only, cellular baseband, UEFI, automotive/UAV/satellite, protocol-only BLE/Zigbee/MQTT/Wi-Fi, honeypot, and generic IoT privacy/compliance papers. MCU and RTOS work is welcome when its firmware-analysis technique is broadly relevant.
 
 ## Required Metadata Format
 
@@ -41,7 +42,7 @@ Examples:
 
 ```markdown
 - [Detecting Vulnerabilities in Linux-Based Embedded Firmware with SSE-Based On-Demand Alias Analysis](...) (EmTaint, ISSTA 2023)
-- [Bond: Constraint-Directed Fuzzing for Automated Validation of Taint Analysis Results in Linux-based IoT Firmware](...) (USENIX Security 2026)
+- [What You Corrupt Is Not What You Crash: Challenges in Fuzzing Embedded Devices](...) (NDSS 2018)
 ```
 
 ## Required Fields for a New Paper
@@ -50,22 +51,25 @@ Please include the following in your PR description:
 
 | Field | Required | Example |
 |---|---:|---|
-| Full title | yes | `HouseFuzz: Service-Aware Grey-Box Fuzzing for Vulnerability Detection in Linux-Based Firmware` |
-| Tool/system name | if any | `HouseFuzz` |
+| Full title | yes | `Fuzzware: Using Precise MMIO Modeling for Effective Firmware Fuzzing` |
+| Tool/system name | if any | `Fuzzware` |
 | Venue | yes | `USENIX Security` |
-| Year | yes | `2025` |
-| Category | yes | `02. Dynamic Analysis — Fuzzing` |
+| Year | yes | `2022` |
+| Category | yes | `03. Dynamic Analysis — Fuzzing` |
 | Official link | yes | USENIX/NDSS/ACM/IEEE/arXiv/DOI page |
 | PDF source | if adding PDF | Official open-access PDF or legally redistributable author preprint |
-| One-sentence reason | yes | Why this belongs in a Linux-based IoT/firmware security collection |
+| One-sentence reason | yes | Why this belongs in an IoT/firmware security collection |
 
 ## Category Guide
 
 Choose the closest category:
 
-1. **Static Analysis**: static taint, binary analysis, code similarity, and vulnerability detection for Linux-based firmware
-2. **Dynamic Analysis — Fuzzing**: fuzzing, greybox/blackbox testing, and feedback-driven testing for Linux-based firmware
-3. **Rehosting & Emulation**: rehosting, emulation, and hybrid static+dynamic analysis of Linux-based firmware binaries
+1. **Static & Taint Analysis**: taint/data-flow analysis, binary analysis, code similarity, and vulnerability detection
+2. **LLM-Assisted Firmware Analysis**: LLM-assisted analysis, interface discovery, request generation, and fuzzing
+3. **Firmware Fuzzing & Dynamic Testing**: greybox/blackbox fuzzing and feedback-driven device testing
+4. **Symbolic Execution, Rehosting & Emulation**: symbolic/concolic execution, peripheral emulation, and hybrid analysis
+5. **Surveys, Taxonomies & Corpora**: surveys, taxonomies, datasets, benchmarks, and corpora
+6. **Firmware Measurement Studies**: empirical studies whose primary object is firmware
 
 If a paper fits multiple categories, pick the one that best matches its main contribution. Mention the secondary category in the PR description.
 
@@ -100,7 +104,7 @@ When in doubt, add only the official link and mark the paper as 🆕.
 
 Before submitting:
 
-- [ ] The paper explicitly targets Linux-based IoT firmware or embedded Linux applications
+- [ ] The paper is directly relevant to IoT / embedded / firmware security
 - [ ] The title is the official full title
 - [ ] Tool name, venue, and year are verified
 - [ ] The paper is placed in the most appropriate category
@@ -118,8 +122,8 @@ Add <ToolName or Short Title> (<Venue Year>)
 Examples:
 
 ```text
-Add HouseFuzz (IEEE S&P 2025)
-Add Linux firmware rehosting analysis (NDSS 2026)
+Add Fuzzware (USENIX Security 2022)
+Add SaTC (IEEE TDSC 2024)
 ```
 
 ## Corrections

@@ -1,19 +1,21 @@
 cff-version: 1.2.0
 message: "If this curated list is useful to your research, please cite it as below and ⭐ the repository."
-title: "Linux-based IoT Firmware Security Papers"
+title: "IoT Firmware Security Papers"
 abstract: >-
-  A categorized collection of security research papers on Linux-based IoT and
-  embedded firmware, covering static and binary analysis, fuzzing, rehosting,
-  and emulation.
+  A categorized collection of IoT and embedded-firmware vulnerability-analysis
+  research, covering static and taint analysis, fuzzing, symbolic execution,
+  rehosting, emulation, LLM-assisted analysis, and firmware measurement.
 authors:
   - alias: AxiaoJJ
 keywords:
-  - Linux-based IoT security
-  - embedded Linux security
+  - IoT security
   - firmware security
   - firmware fuzzing
   - static analysis
+  - symbolic execution
   - firmware rehosting
+  - LLM-assisted analysis
+  - embedded firmware analysis
   - awesome list
 type: software
 repository-code: "https://github.com/AxiaoJJ/IoTpaper"
