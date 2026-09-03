@@ -4,17 +4,41 @@
 
 A curated collection of security research focused on **IoT and embedded firmware vulnerability analysis**. It covers static and taint analysis, binary analysis, fuzzing, symbolic execution, firmware rehosting/emulation, LLM-assisted analysis, and firmware-focused measurement.
 
-## Scope
+## 🌟 Start Here — Classic Reading Paths
+
+### 🎓 IoT firmware research essentials
+
+| Paper | Core topic | Why read it first |
+|---|---|---|
+| [KARONTE](01-static-analysis-traditional/20-Karonte_Detecting_Insecure_Multi-binary_Interactions_in_Embedded_Firmware.pdf) | Multi-binary data-flow analysis | Establishes how vulnerabilities cross process and binary boundaries in embedded firmware. |
+| [SaTC](https://doi.org/10.1109/TDSC.2023.3307430) | Shared-keyword-aware taint checking | A clear entry into source/sink discovery and embedded-system taint analysis. |
+| [EmTaint](01-static-analysis-traditional/23-Detecting%20Vulnerabilities%20in%20Linux-Based%20Embedded%20Firmware%20with%20SSE-Based%20On-Demand%20Alias%20Analysis.pdf) | On-demand alias and taint analysis | Shows how precise binary analysis can scale to Linux-based firmware. |
+| [FirmAgent](https://www.ndss-symposium.org/ndss-paper/firmagent-leveraging-fuzzing-to-assist-llm-agents-with-iot-firmware-vulnerability-discovery/) | LLM agents assisted by fuzzing | Connects classic firmware analysis with the emerging agentic workflow. |
+
+### 🔐 Authentication bypass & hidden interfaces
+
+| Paper | Core topic | Why it matters |
+|---|---|---|
+| [Firmalice](04-dynamic-analysis-symbolic-execution/Firmalice%20-%20Automatic%20Detection%20of%20Authentication%20Bypass%20Vulnerabilities%20in%20Binary%20Firmware.pdf) | Privileged-program-point discovery and symbolic execution | The foundational authentication-bypass paper for binary firmware. |
+| [AuthSpark](03-dynamic-analysis-fuzzing/Through%20the%20Authentication%20Maze%20Detecting%20Authentication%20Bypass%20Vulnerabilities%20in%20Firmware%20Binaries.pdf) | Large-scale authentication-bypass detection | A modern end-to-end successor for finding bypasses in real firmware. |
+| [FirmPass](01-static-analysis-traditional/FirmPass_Identifying_Broken_Password_Management_in_Linux-Based_IoT_Firmware_Through_Query-Driven_Approaches.pdf) | Broken password-management detection | Covers credential validation and password-handling flaws. |
+| [EAGLEYE](02-static-analysis-llm-assisted/EAGLEYE%20Exposing%20Hidden%20Web%20Interfaces%20in%20IoT%20Devices%20via%20Routing%20Analysis.pdf) | Hidden routes and web interfaces | Introduces routing analysis for recovering unexposed firmware endpoints. |
+| [FalconScope](https://doi.org/10.1145/3774904.3792431) | Route reconstruction plus LLM-guided verification | Extends hidden-interface discovery with semantic request generation. |
+| [ACBreaker](02-static-analysis-llm-assisted/ACBreaker.pdf) | Broken access-control discovery | Demonstrates LLM-assisted protected-interface evasion and validation. |
+
+## 🎯 Scope
 
 Included work must analyze device firmware, firmware binaries/services, embedded software, or techniques directly used for firmware vulnerability discovery. Linux-based firmware is central, while broadly reusable MCU/RTOS firmware-analysis techniques are also included.
 
 Excluded topics include PLC/ICS-only research, cellular baseband, UEFI, automotive/UAV/satellite systems, protocol-only BLE/Zigbee/MQTT/Wi-Fi work, honeypots, and generic IoT privacy/compliance/market studies.
 
-## Overview
+## 📊 Overview
 
 **90 papers** indexed across six focused categories.
 
-## Categories
+![IoT firmware paper trend by year](assets/firmware-paper-trend.png)
+
+## 🗂️ Categories
 
 [01. Static & Taint Analysis](#01-static--taint-analysis) ·
 [02. LLM-Assisted Firmware Analysis](#02-llm-assisted-firmware-analysis) ·
