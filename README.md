@@ -38,6 +38,49 @@ Excluded topics include PLC/ICS-only research, cellular baseband, UEFI, automoti
 
 ![IoT firmware paper trend by year](assets/firmware-paper-trend.png)
 
+### Security Top Four — 59 papers
+
+| Venue | Papers |
+|---|---:|
+| USENIX Security | **26** |
+| NDSS | **17** |
+| IEEE Symposium on Security and Privacy (S&P) | **10** |
+| ACM Conference on Computer and Communications Security (CCS) | **6** |
+| **Subtotal** | **59** |
+
+![Security Top Four papers by year](assets/security-top4-trend.png)
+
+### Other venues and publication types — 31 papers
+
+| Venue / publication type | Papers |
+|---|---:|
+| ASE | 3 |
+| ACSAC | 2 |
+| Cybersecurity | 2 |
+| ICSE | 2 |
+| IEEE Access | 2 |
+| IEEE Internet of Things Journal | 2 |
+| ISSTA | 2 |
+| ACM AsiaCCS | 1 |
+| Applied Sciences | 1 |
+| ASPLOS | 1 |
+| Concurrency and Computation: Practice and Experience | 1 |
+| ESORICS | 1 |
+| IEEE CNS | 1 |
+| IEEE IPCCC | 1 |
+| IEEE TCAD | 1 |
+| IEEE TDSC | 1 |
+| International Journal of Critical Infrastructure Protection | 1 |
+| Internetware | 1 |
+| KSII Transactions on Internet and Information Systems | 1 |
+| Sensors | 1 |
+| The Web Conference | 1 |
+| arXiv / venue unconfirmed | 1 |
+| PhD thesis | 1 |
+| **Subtotal** | **31** |
+
+Poster papers are counted under their parent conference. Venue totals are generated from the 90 entries below.
+
 ## 🗂️ Categories
 
 [01. Static & Taint Analysis](#01-static--taint-analysis) ·
