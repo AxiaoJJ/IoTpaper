@@ -134,20 +134,10 @@ def read_known(readme_path):
 def suggest_category(title):
     t = title.lower()
     if "fuzz" in t:
-        return "03 Fuzzing"
+        return "02 Dynamic Analysis — Fuzzing"
     if any(k in t for k in ("symbolic", "concolic", "rehost", "emulat")):
-        return "04 Symbolic/Hybrid/Rehost"
-    if any(k in t for k in ("survey", "taxonomy", "systematiz", "review", "sok")):
-        return "05 Survey"
-    if any(k in t for k in ("benchmark", "dataset", "corpus", "measurement", "large-scale", "empirical", "in the wild")):
-        return "06 Measurement"
-    if any(k in t for k in ("honeypot", "decept")):
-        return "08 Honeypot"
-    if any(k in t for k in ("llm", "large language", "gpt", "transformer", "language model")):
-        return "02 LLM-assisted"
-    if any(k in t for k in ("ble", "bluetooth", "zigbee", "matter", "mqtt", "wi-fi", "wifi", "fast pair", "lte", "5g", "protocol")):
-        return "07 Protocol/App"
-    return "01 Static (default)"
+        return "03 Rehosting & Emulation"
+    return "01 Static Analysis"
 
 # ---- DBLP ------------------------------------------------------------------
 def fetch_dblp():
