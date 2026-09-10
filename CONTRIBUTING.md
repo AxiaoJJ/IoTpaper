@@ -123,7 +123,7 @@ Examples:
 
 ```text
 Add Fuzzware (USENIX Security 2022)
-Add SaTC (IEEE TDSC 2024)
+Add SaTC (USENIX Security 2021)
 ```
 
 ## Corrections

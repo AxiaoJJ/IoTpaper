@@ -1,6 +1,6 @@
 # IoT Firmware Security Papers
 
-![Awesome](https://awesome.re/badge.svg) ![Papers](https://img.shields.io/badge/papers-90-blue) ![Last Updated](https://img.shields.io/badge/updated-2026--09-green) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
+![Awesome](https://awesome.re/badge.svg) ![Papers](https://img.shields.io/badge/papers-89-blue) ![Last Updated](https://img.shields.io/badge/updated-2026--09-green) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)
 
 A curated collection of security research focused on **IoT and embedded firmware vulnerability analysis**. It covers static and taint analysis, binary analysis, fuzzing, symbolic execution, firmware rehosting/emulation, LLM-assisted analysis, and firmware-focused measurement.
 
@@ -11,7 +11,7 @@ A curated collection of security research focused on **IoT and embedded firmware
 | Paper | Core topic | Why read it first |
 |---|---|---|
 | [KARONTE](01-static-analysis-traditional/20-Karonte_Detecting_Insecure_Multi-binary_Interactions_in_Embedded_Firmware.pdf) | Multi-binary data-flow analysis | Establishes how vulnerabilities cross process and binary boundaries in embedded firmware. |
-| [SaTC](https://doi.org/10.1109/TDSC.2023.3307430) | Shared-keyword-aware taint checking | A clear entry into source/sink discovery and embedded-system taint analysis. |
+| [SaTC (USENIX Security 2021)](01-static-analysis-traditional/Chen%20et%20al.%20-%20Sharing%20More%20and%20Checking%20Less%20Leveraging%20Common%20Sanitizer%20Checks.pdf) | Shared-keyword-aware taint checking | A clear entry into source/sink discovery and embedded-system taint analysis. |
 | [EmTaint](01-static-analysis-traditional/23-Detecting%20Vulnerabilities%20in%20Linux-Based%20Embedded%20Firmware%20with%20SSE-Based%20On-Demand%20Alias%20Analysis.pdf) | On-demand alias and taint analysis | Shows how precise binary analysis can scale to Linux-based firmware. |
 | [FirmAgent](https://www.ndss-symposium.org/ndss-paper/firmagent-leveraging-fuzzing-to-assist-llm-agents-with-iot-firmware-vulnerability-discovery/) | LLM agents assisted by fuzzing | Connects classic firmware analysis with the emerging agentic workflow. |
 
@@ -34,7 +34,7 @@ Excluded topics include PLC/ICS-only research, cellular baseband, UEFI, automoti
 
 ## 📊 Overview
 
-**90 papers** indexed across six focused categories.
+**89 papers** indexed across six focused categories.
 
 ![IoT firmware paper trend by year](assets/firmware-paper-trend.png)
 
@@ -78,13 +78,12 @@ Static taint, binary, data-flow, recurring-vulnerability, update, and authentica
 - [LuaTaint: A Static Analysis System for Web Configuration Interface Vulnerability of Internet of Things Devices](01-static-analysis-traditional/23-LuaTaint%20A%20Static%20Taint%20Analysis%20System%20for%20Web.pdf) (LuaTaint, IEEE Internet of Things Journal 2024)
 - [OctopusTaint: Advanced Data Flow Analysis for Detecting Taint-Based Vulnerabilities in IoT/IIoT Firmware](01-static-analysis-traditional/OctopusTaint_Advanced%20Data%20Flow%20Analysis%20for%20Detecting%20taint-based%20vulnerabilities%20in%20iot%20firmware.pdf) (OctopusTaint, ACM CCS 2024)
 - [Operation Mango: Scalable Discovery of Taint-Style Vulnerabilities in Binary Firmware Services](01-static-analysis-traditional/2024%20-%20USENIX%20Security%20-%20Mango.pdf) (Mango, USENIX Security 2024)
-- [SaTC: Shared-Keyword Aware Taint Checking for Detecting Bugs in Embedded Systems](https://doi.org/10.1109/TDSC.2023.3307430) (SaTC, IEEE TDSC 2024)
 - [Your Firmware Has Arrived: A Study of Firmware Update Vulnerabilities](01-static-analysis-traditional/sec24-Your%20Firmware%20Has%20Arrived-A%20Study%20of%20Firmware%20Update%20Vulnerabilities.pdf) (ChkUp, USENIX Security 2024)
 - [Detecting Vulnerabilities in Linux-Based Embedded Firmware with SSE-Based On-Demand Alias Analysis](01-static-analysis-traditional/23-Detecting%20Vulnerabilities%20in%20Linux-Based%20Embedded%20Firmware%20with%20SSE-Based%20On-Demand%20Alias%20Analysis.pdf) (EmTaint, ISSTA 2023)
 - [Systematically Detecting Packet Validation Vulnerabilities in Embedded Network Stacks](https://arxiv.org/abs/2308.10965) (ASE 2023)
 - [VulHawk: Cross-architecture Vulnerability Detection with Entropy-based Binary Code Search](01-static-analysis-traditional/23-VulHawk-Cross-architecture%20Vulnerability%20Detection.pdf) (VulHawk, NDSS 2023)
 - [RapidPatch: Firmware Hotpatching for Real-Time Embedded Devices](01-static-analysis-traditional/sec22-RapidPatch%20Firmware%20Hotpatching%20for%20Real-Time%20Embedded%20Devices.pdf) (RapidPatch, USENIX Security 2022)
-- [Sharing More and Checking Less: Leveraging Common Input Keywords to Detect Bugs in Embedded Systems](01-static-analysis-traditional/Chen%20et%20al.%20-%20Sharing%20More%20and%20Checking%20Less%20Leveraging%20Common%20Sanitizer%20Checks.pdf) (USENIX Security 2021)
+- [Sharing More and Checking Less: Leveraging Common Input Keywords to Detect Bugs in Embedded Systems](01-static-analysis-traditional/Chen%20et%20al.%20-%20Sharing%20More%20and%20Checking%20Less%20Leveraging%20Common%20Sanitizer%20Checks.pdf) (SaTC, USENIX Security 2021)
 - [HALucinator: Firmware Re-hosting Through Abstraction Layer Emulation](01-static-analysis-traditional/sec20-HALucinator_%20Firmware%20re-hosting%20through%20abstraction%20layer%20emulation.pdf) (HALucinator, USENIX Security 2020)
 - [KARONTE: Detecting Insecure Multi-binary Interactions in Embedded Firmware](01-static-analysis-traditional/20-Karonte_Detecting_Insecure_Multi-binary_Interactions_in_Embedded_Firmware.pdf) (Karonte, IEEE S&P 2020)
 
